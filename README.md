@@ -3,7 +3,7 @@
 ### Links
 
 [Challenge from FrontendMentor](https://www.frontendmentor.io/challenges/product-preview-card-component-GO7UmttRfa)\
-[Live site here]()
+[Live site here](https://mgksp.github.io/FEM-Product_preview_card_component/)
 
 ### Built with
 
