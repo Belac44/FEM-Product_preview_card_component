@@ -1,3 +1,11 @@
+$first-breakpoint: 768px;
+
+@mixin breakpoint($size) {
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -8,6 +16,7 @@
 
 :root {
   --color-dark-cyan: hsl(158, 36%, 37%);
+  --color-dark-cyan-hover: hsl(158, 36%, 27%);
   --color-cream: hsl(30, 38%, 92%);
 
   --color-dark-blue: hsl(212, 21%, 14%);
@@ -28,13 +37,24 @@ body {
   background-color: var(--color-white);
   border-radius: 0.5rem;
   overflow: hidden;
+  max-width: 37.5rem;
+
+  @include breakpoint($first-breakpoint) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   &__img {
     background-image: url("../images/image-product-mobile.jpg");
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     min-height: 15rem;
+
+    @include breakpoint($first-breakpoint) {
+      background-image: url("../images/image-product-desktop.jpg");
+      background-size: cover;
+    }
   }
 
   &__content {
@@ -42,10 +62,18 @@ body {
     padding: 1.5rem;
     font-weight: 500;
 
+    @include breakpoint($first-breakpoint) {
+      padding: 2rem;
+    }
+
     &__sub-heading {
       font-size: 0.8125rem;
       letter-spacing: 0.25rem;
       margin-bottom: 0.75rem;
+
+      @include breakpoint($first-breakpoint) {
+        margin-bottom: 1rem;
+      }
     }
 
     &__heading {
@@ -56,12 +84,21 @@ body {
       letter-spacing: -1px;
       line-height: 32px;
       margin-bottom: 1rem;
+
+      @include breakpoint($first-breakpoint) {
+        margin-bottom: 1.375rem;
+      }
     }
 
     &__desc {
       font-size: 0.8125rem;
       line-height: 1.4375rem;
       margin-bottom: 3rem;
+
+      @include breakpoint($first-breakpoint) {
+        font-size: 0.875rem;
+        margin-bottom: 1.875rem;
+      }
     }
 
     &__price {
@@ -69,6 +106,10 @@ body {
       align-items: center;
       gap: 1.5rem;
       margin-bottom: 1.25rem;
+
+      @include breakpoint($first-breakpoint) {
+        margin-bottom: 1.875rem;
+      }
 
       & > p {
         color: var(--color-dark-cyan);
@@ -99,6 +140,12 @@ body {
       border: none;
       padding: 1em;
       border-radius: 0.375rem;
+      cursor: pointer;
+      transition: background-color 200ms ease-in;
+
+      &:hover {
+        background-color: var(--color-dark-cyan-hover);
+      }
     }
   }
 }
