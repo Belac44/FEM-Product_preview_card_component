@@ -149,3 +149,18 @@ body {
     }
   }
 }
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  font-size: 0.6875rem;
+  color: var(--color-dark-grayish-blue);
+
+  a {
+    font-family: "Fraunces", serif;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--color-dark-cyan);
+  }
+}
